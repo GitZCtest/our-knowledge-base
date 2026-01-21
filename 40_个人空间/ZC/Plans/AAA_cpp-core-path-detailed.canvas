@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"cap","type":"group","x":2280,"y":-20,"width":760,"height":640,"color":"5","label":"结课项目（2 选 1 或都做）"},
+		{"id":"gA","type":"group","x":-360,"y":-20,"width":620,"height":640,"color":"1","label":"阶段 A：写得稳（调试 + 内存 + 代码规范）"},
+		{"id":"gB","type":"group","x":300,"y":-20,"width":620,"height":640,"color":"2","label":"阶段 B：面向对象与资源管理（RAII 入门）"},
+		{"id":"gC","type":"group","x":960,"y":-20,"width":620,"height":640,"color":"3","label":"阶段 C：STL 体系（容器 + 迭代器 + 算法）"},
+		{"id":"gD","type":"group","x":1620,"y":-20,"width":620,"height":640,"color":"4","label":"阶段 D：工程化（CMake + 测试 + Sanitizer）"},
+		{"id":"w1","type":"text","text":"### Week 1｜编译/链接/错误定位\n目标：看到报错不慌，能迅速缩小范围\n- 练：常见编译错误/链接错误（undefined reference、multiple definition）\n- 练：头文件与编译单元：include guard / pragma once\n- 交付：写一个 200~300 行的小程序，分 3 个 .cpp + 2 个 .h\n- 检查点：你能解释“声明 vs 定义”与 ODR","x":-340,"y":40,"width":580,"height":190},
+		{"id":"w2","type":"text","text":"### Week 2｜调试（gdb/lldb）+ 崩溃复现\n目标：能独立定位段错误/越界\n- 断点：break / run / next / step / finish\n- 观察：print / display / watch / backtrace\n- 练：最小复现（把 bug 缩到 20 行以内）\n- 交付：做一个“崩溃案例集”（3 个常见崩溃 + 复现 + 修复）","x":-340,"y":240,"width":580,"height":200},
+		{"id":"w3","type":"text","text":"### Week 3｜指针/引用/const 的“边界感”\n目标：减少悬垂指针/悬垂引用\n- 重点：生命周期、const-correctness\n- 练：返回引用/指针的风险点\n- 交付：实现一个安全的字符串分割函数（返回 vector<string_view> 或 vector<string>）","x":-340,"y":460,"width":580,"height":150},
+		{"id":"w4","type":"text","text":"### Week 4｜类与对象：构造/析构/拷贝\n目标：写出“没有隐藏资源坑”的类\n- 练：构造函数重载、初始化列表\n- 练：析构函数何时需要 virtual\n- 练：拷贝构造/拷贝赋值：深拷贝 vs 浅拷贝\n- 交付：实现一个 `String`（只做最小功能：构造/析构/拷贝/size/c_str）","x":320,"y":40,"width":580,"height":200},
+		{"id":"w5","type":"text","text":"### Week 5｜Rule of 3/5/0（先会 Rule of 3）\n目标：理解资源所有权\n- 练：当类管理资源（new/delete、FILE*、socket）时必须写哪些函数\n- 练：异常安全（至少做到 basic guarantee）\n- 交付：实现一个 `Buffer` 类（动态数组），支持拷贝与自动释放\n- 检查点：你能解释“为什么拷贝赋值要处理自赋值”","x":320,"y":260,"width":580,"height":190},
+		{"id":"w6","type":"text","text":"### Week 6｜智能指针与 RAII\n目标：把裸 new/delete 变成例外\n- unique_ptr/shared_ptr/weak_ptr 的使用场景\n- 练：工厂函数返回 unique_ptr\n- 交付：把 Week4/5 的类改成更现代的写法（能 Rule of 0 就 Rule of 0）","x":320,"y":470,"width":580,"height":140},
+		{"id":"w7","type":"text","text":"### Week 7｜顺序容器：vector/deque/list\n目标：知道“该用谁”\n- vector：reserve、push_back/emplace_back、迭代器失效\n- list：节点稳定但缓存不友好\n- 练：写 3 份版本，对比复杂度与代码简洁性\n- 交付：实现一个简单“待办清单”数据结构（增删改查 + 排序）","x":980,"y":40,"width":580,"height":200},
+		{"id":"w8","type":"text","text":"### Week 8｜关联容器：map/unordered_map\n目标：哈希表与红黑树的取舍\n- unordered_map：hash、bucket、rehash、负载因子\n- map：有序、lower_bound、范围查询\n- 交付：词频统计工具（读取文本 -> topK 词频）\n- 检查点：你能解释“为什么 unordered_map 会突然变慢（rehash）”","x":980,"y":260,"width":580,"height":200},
+		{"id":"w9","type":"text","text":"### Week 9｜算法与 lambda\n目标：能写“可读的 STL 风格”代码\n- sort / stable_sort / lower_bound / unique / remove_if\n- lambda 捕获：值捕获/引用捕获\n- 交付：实现一个 CSV 简易清洗器（过滤、去重、排序、统计）","x":980,"y":470,"width":580,"height":140},
+		{"id":"w10","type":"text","text":"### Week 10｜CMake 与项目结构\n目标：能把项目交付给别人编译\n- 目录：src/include/tests\n- target：add_executable / add_library / target_include_directories\n- 交付：把前面任意一个小项目改成 CMake 工程 + README + 一键构建\n- 检查点：你能解释“为什么要用 target_* 而不是全局 include_directories”","x":1640,"y":40,"width":580,"height":210},
+		{"id":"w11","type":"text","text":"### Week 11｜单元测试 + 静态检查（入门即可）\n目标：学会用工具减少返工\n- Catch2 / GoogleTest（二选一）\n- clang-format：固定风格\n- clang-tidy：从 5 条规则开始\n- 交付：为 Week8 词频工具补 8~12 个测试用例（含边界）","x":1640,"y":270,"width":580,"height":200},
+		{"id":"w12","type":"text","text":"### Week 12｜Sanitizers + 性能意识\n目标：能主动抓内存/UB 问题\n- ASan/UBSan：跑通并学会看报告\n- 简单 profiling（先会用时间测量/采样工具）\n- 交付：找一个历史 bug，用 sanitizer 抓到并写复盘","x":1640,"y":490,"width":580,"height":140},
+		{"id":"p1","type":"text","text":"## 项目 A：CLI 工具箱（偏实用）\n做一个命令行程序，包含至少 3 个子命令：\n1) `stats`：统计目录中文件类型/大小/行数\n2) `find`：按关键词/正则搜索文本（支持递归目录）\n3) `topk`：词频 topK（复用 Week8）\n要求：\n- CMake 工程\n- 20+ 单元测试\n- README：用法 + 示例\n- sanitizer 跑通","x":2300,"y":40,"width":720,"height":260},
+		{"id":"p2","type":"text","text":"## 项目 B：LRU Cache（偏数据结构/STL）\n实现一个通用 LRU：\n- 接口：get/put/erase/size\n- 复杂度：get/put 平均 O(1)\n- 技术点：list + unordered_map（迭代器存储）\n要求：\n- 覆盖边界：容量 0、重复 key、淘汰策略\n- 10+ 单元测试\n- 提供 benchmark（简单对比不同容量）","x":2300,"y":320,"width":720,"height":280},
+		{"id":"rubric","type":"text","text":"## 总验收（你达到这些，就算“核心能力”过线）\n- 能独立定位：编译错误/链接错误/运行时崩溃（至少会用 backtrace + watch）\n- 能写出：不会泄漏资源的类（理解 Rule of 3/5/0 与 RAII）\n- 能熟练用：vector/unordered_map + 常用算法（sort/lower_bound/unique/remove_if）\n- 能交付：CMake 工程 + README + 测试 + sanitizer\n- 能复盘：每个项目至少写 1 次“重构记录”（为什么改、改了什么、收益是什么）","x":-360,"y":660,"width":3400,"height":260},
+		{"id":"env","type":"text","text":"## 先把环境弄对（一次到位）\n- 编译器：clang++ 或 g++（支持 C++17/20）\n- 基础编译参数（建议）：\n  - Debug：-g -O0 -Wall -Wextra -Wpedantic\n  - 额外：-fsanitize=address,undefined（调试期）\n- 工具：git + CMake + clang-format + clang-tidy（先装上）","x":-340,"y":-320,"width":560,"height":190},
+		{"id":"title","type":"text","text":"# C++ 核心能力提升路径（更细版，适合刚学完基础）\n\n**用法**：保存为 `.canvas` 文件 → 放进 Obsidian 仓库 → 打开。\n\n**节奏**：每周 4~6 天，每天 60~120 分钟。\n**原则**：每周都要（1）写代码（2）调试（3）复盘（4）做一个小交付。","x":280,"y":-320,"width":1240,"height":190}
+	],
+	"edges":[
+		{"id":"e-w1-w2","fromNode":"w1","fromSide":"bottom","toNode":"w2","toSide":"top"},
+		{"id":"e-w2-w3","fromNode":"w2","fromSide":"bottom","toNode":"w3","toSide":"top"},
+		{"id":"e-w3-w4","fromNode":"w3","fromSide":"top","toNode":"w4","toSide":"bottom"},
+		{"id":"e-w4-w5","fromNode":"w4","fromSide":"bottom","toNode":"w5","toSide":"top"},
+		{"id":"e-w5-w6","fromNode":"w5","fromSide":"bottom","toNode":"w6","toSide":"top"},
+		{"id":"e-w6-w7","fromNode":"w6","fromSide":"top","toNode":"w7","toSide":"bottom"},
+		{"id":"e-w7-w8","fromNode":"w7","fromSide":"bottom","toNode":"w8","toSide":"top"},
+		{"id":"e-w8-w9","fromNode":"w8","fromSide":"bottom","toNode":"w9","toSide":"top"},
+		{"id":"e-w9-w10","fromNode":"w9","fromSide":"top","toNode":"w10","toSide":"bottom"},
+		{"id":"e-w10-w11","fromNode":"w10","fromSide":"bottom","toNode":"w11","toSide":"top"},
+		{"id":"e-w11-w12","fromNode":"w11","fromSide":"bottom","toNode":"w12","toSide":"top"},
+		{"id":"e-w12-p1","fromNode":"w12","fromSide":"top","toNode":"p1","toSide":"bottom"},
+		{"id":"e-w12-cap","fromNode":"w12","fromSide":"top","toNode":"cap","toSide":"left"},
+		{"id":"e-cap-rubric","fromNode":"cap","fromSide":"left","toNode":"rubric","toSide":"top"},
+		{"id":"e-env-w1","fromNode":"env","fromSide":"bottom","toNode":"w1","toSide":"top"}
+	]
+}
